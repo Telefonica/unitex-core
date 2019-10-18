@@ -756,19 +756,19 @@ if (start_pos_char!=0) {
    /* If the match doesn't start on the first char of the first token */
    s=tokens->token[buffer->int_buffer_[buffer->skip+start_pos]];
    int end=(end_pos==start_pos) ? (end_pos_char+1) : ((int)u_strlen(s));
-   for (k=start_pos_char;(k<end) && (j<size_middle);k++) {
+   for (k=start_pos_char;(k<end) && (j<(int)size_middle);k++) {
       middle[j++]=s[k];
    }
-   if ((start_pos==end_pos) || (j>=size_middle)) {
+   if ((start_pos==end_pos) || (j>=(int)size_middle)) {
       middle[j]='\0';
       return;
    }
    start_pos++;
 }
-for (int i=start_pos;(i<end_pos) && (j<size_middle);i++) {
+for (int i=start_pos;(i<end_pos) && (j<(int)size_middle);i++) {
    k=0;
     s=tokens->token[buffer->int_buffer_[buffer->skip+i]];
-    while ((s[k]!='\0') && (j<size_middle)) {
+    while ((s[k]!='\0') && (j<(int)size_middle)) {
         middle[j++]=s[k++];
     }
 }
